@@ -51,7 +51,7 @@ int main() {
 	/*
 	
 	remaining_seconds will literally carry over remaining seconds
-    after input_seconds is organized into year(s), hour(s), etc.
+    	after input_seconds is organized into year(s), hour(s), etc.
 
 	*/
 	
