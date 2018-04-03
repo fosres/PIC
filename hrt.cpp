@@ -6,7 +6,8 @@ Human Readable Time
 Converts seconds into time in:
 
 year(s), and remaining day(s), and remaining hour(s), 
-and remaining day(s), and remaining minute(s).
+and remaining day(s), and remaining minute(s), and
+remaining second(s).
 
 Terms:
 
