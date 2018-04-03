@@ -48,6 +48,13 @@ int main() {
 	cout << "The time is " << input_seconds / year_in_seconds
 		 << " year(s), ";
 	
+	/*
+	
+	remaining_seconds will literally carry over remaining seconds
+    after input_seconds is organized into year(s), hour(s), etc.
+
+	*/
+	
 	long long int remaining_seconds = input_seconds % year_in_seconds;
 
 	cout << remaining_seconds / day_in_seconds 
