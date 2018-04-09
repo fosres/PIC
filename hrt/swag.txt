@@ -1,0 +1,1 @@
+0s = 0Y, 0D, 0H, 0M, 0s //So you can give output for 0, right?
