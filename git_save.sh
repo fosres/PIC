@@ -1,5 +1,5 @@
 # git_save.sh
-# Saves git local repository for MCDB187AL
+# Saves git local repository for PIC-10A
 # to GitHub
 
 # To run git_save.sh:
@@ -14,6 +14,6 @@
 	
 	git add .
 
-	git commit -m MCDB187-UPDATED
+	git commit -m PIC-10A
 
-	git push origin MCDB187-UPDATED
+	git push origin PIC-10A
