@@ -30,9 +30,7 @@
  * If the input value
  * is greater than the maximum
  * value, that input becomes
- * the new maximum
- *
- * The maximum
+ * the new maximum.
  */
 
 #include <iostream>
