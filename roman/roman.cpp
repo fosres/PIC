@@ -10,7 +10,7 @@
  * x = input
  *
  * v = one of the constant numbers explained below
- * 
+ * Input Range: [1,3999]
  * Conditions:
  *
  * How the program works:
