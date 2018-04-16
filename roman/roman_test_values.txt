@@ -1,0 +1,23 @@
+1
+3999 // Input range limits work, right?
+4 // IV
+5 // V
+9 // IX
+10 // X
+40 // XL
+50 // L
+90 // XC
+100 // C
+400 // CD
+500 // D
+900 // CM
+1000 // M; All the values v work, right?
+3
+8 // Values between 5-9 work, right?
+39 // Value between 10 and 40 work, right?
+89 // Value between 50 and 90 work?
+95 // Values between 90 and 100 and that do have a 9 ones-digit work, right?
+347 // This value between 100 and 400 work, right?
+475 // Value between 400 and 500 works, right
+833 // Value between 500 and 900 works right?
+966 // Value between 900 and 100?
