@@ -92,5 +92,7 @@ How it Works:
    4. This process iterates 
    
 			while (number > 0)
+			
+4. check if ( reverse == number )
 
 */
