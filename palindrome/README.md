@@ -93,6 +93,10 @@ How it Works:
    
 			while (number > 0)
 			
-4. check if ( reverse == number )
+4. check if ( reverse == input ) 
+
+	Have a const variable that stores the original input 
+	
+	since number gradually is reduced to 0.
 
 */
