@@ -14,6 +14,6 @@
 	
 	git add .
 
-	git commit -m PIC-10A
+	git commit -m master
 
-	git push origin PIC-10A
+	git push origin master
