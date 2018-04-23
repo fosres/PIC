@@ -46,7 +46,6 @@ int main() {
 
 	long long int input;
 	string hex_num = "";
-	string temp = "";
 
 	cout << "Enter a decimal number:" << endl;
 
