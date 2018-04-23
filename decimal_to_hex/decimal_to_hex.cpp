@@ -1,5 +1,10 @@
 //decimal_to_hex.cpp
 /*
+Written by
+
+Tanveer Salim
+
+for PIC 10A 4/23/18 2:24 PM
 
 For reference, visit: https://blog.angularindepth.com/the-simple-math-behind-decimal-binary-conversion-algorithms-d30c967c9724
 
@@ -33,12 +38,12 @@ The output is F.
 */
 
 #include <iostream>
-#include <string.h>
+#include <string>
 using namespace std;
 
 int main() {
 
-	
+
 	long long int input;
 	string hex_num = "";
 	string temp = "";
@@ -49,14 +54,15 @@ int main() {
 
 	while (input > 0) {
 
-		if (input % 16 < 10) {
-			hex_num = to_string( (input % 16) ) + hex_num;
+		if (input % 16 < 10) { // since input % 16, only need to concatenate digit
+			char digit = (char)((input % 16) + 48); 
+			hex_num = digit + hex_num;
 
 		}
 
 		else {// value of ( input % 16 ) >= 10. Need to use letters 
-		    
-		    char letter = input % 16 - 10 + 'A';
+
+			char letter = (char)((input % 16 - 10) + 65); // 65 is the ASCII code of 'A'
 			hex_num = letter + hex_num;
 
 		}
@@ -69,7 +75,7 @@ int main() {
 	cout << "Your number in hex is 0x" << hex_num << "." << endl;
 
 
-	
+
 
 	return 0;
 }
