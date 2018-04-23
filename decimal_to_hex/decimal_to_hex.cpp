@@ -87,12 +87,12 @@ while (number > 0)								{
 
 	and appends the char to hex_num
 
-	Now checks if input == 0
-	
-	
+
 	Then number /= 16 and restart this while loop
 
 }
+
+	Now checks if input == 0
 
 	If so,
 		
