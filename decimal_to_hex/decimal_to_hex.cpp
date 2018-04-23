@@ -87,10 +87,21 @@ while (number > 0)								{
 
 	and appends the char to hex_num
 
+	Now checks if input == 0
+	
+	
 	Then number /= 16 and restart this while loop
+
 }
 
-At the end, the string is printed as: "0x" + hex_num + "."
+	If so,
+		
+		At the end, the string is printed as: "0x" + input + "."
+		
+	Else
+		
+		At the end, the string is printed as: "0x" + hex_num + "."
+	
 */
 
 #include <iostream>
