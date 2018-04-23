@@ -55,7 +55,7 @@ and
 
 number = input,
 
-while (number > 0)								{
+while (number > 0)						{
 
 	the computer evaluates number % 16 and
 
