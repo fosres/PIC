@@ -55,7 +55,9 @@ int main() {
 	while (input > 0) {
 
 		if (input % 16 < 10) { // since input % 16, only need to concatenate digit
+			
 			char digit = (char)((input % 16) + 48); 
+			
 			hex_num = digit + hex_num;
 
 		}
