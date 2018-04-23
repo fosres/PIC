@@ -15,13 +15,13 @@ Convert a NONNEGATIVE decimal number to
 decimal (base 16) number.
 
 Write a program that converts a nonnegative decimal number into a hexadecimal number. The
-input and output should be exactly:
+number and output should be exactly:
 
 Enter a decimal number:
 [USER ENTERS A NONNEGATIVE INTEGER]
 Your number in hex is 0xXX.
 
-For example, an input of 4095 should produce the output
+For example, an number of 4095 should produce the output
 Your number in hex is 0xFFF.
 
 You may not use any libraries aside from iostream and string. You may not use the dec, hex,
@@ -41,13 +41,23 @@ Terms:
 
 long long int input
 
+long long int number = stores original input
+
 string hex_num = stores resulting hexadecimal value
 
 How It Works:
 
-while (input > 0)								{
+After 
 
-	the computer evaluates input % 16 and
+cin >> input
+
+and
+
+number = input,
+
+while (number > 0)								{
+
+	the computer evaluates number % 16 and
 
 	checks if resulting number is less than
 
@@ -77,7 +87,7 @@ while (input > 0)								{
 
 	and appends the char to hex_num
 
-	Then input /= 16 and restart this while loop
+	Then number /= 16 and restart this while loop
 }
 
 At the end, the string is printed as: "0x" + hex_num + "."
@@ -91,40 +101,50 @@ int main() {
 
 
 	long long int input;
-	
+
+	long long int number; //stores original number
+
 	string hex_num = "";
 
 	cout << "Enter a decimal number:" << endl;
 
 	cin >> input;
 
-	while (input > 0) {
+	number = input;
 
-		if (input % 16 < 10) { 
-			
-			char digit = (char)((input % 16) + 48); 
-			
-			hex_num = digit + hex_num;
+	
+
+		while (number > 0) {
+
+			if (number % 16 < 10) {
+
+				char digit = (char)((number % 16) + 48);
+
+				hex_num = digit + hex_num;
+
+			}
+
+			else {
+
+				char letter = (char)((number % 16 - 10) + 65);
+
+				hex_num = letter + hex_num;
+
+			}
+
+
+			number /= 16;
 
 		}
 
-		else { 
-
-			char letter = (char)((input % 16 - 10) + 65); 
-			
-			hex_num = letter + hex_num;
-
-		}
+		if (input == 0)
+			cout << "Your number in hex is 0x" << input << "." << endl;
+		else
+			cout << "Your number in hex is 0x" << hex_num << "." << endl;
 
 
-		input /= 16;
-
-	}
-
-	cout << "Your number in hex is 0x" << hex_num << "." << endl;
+		return 0;
 
 
 
-
-	return 0;
 }
