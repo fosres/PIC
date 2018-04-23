@@ -4,6 +4,8 @@ Written by
 
 Tanveer Salim
 
+Specs: 
+
 for PIC 10A 4/23/18 2:24 PM
 
 For reference, visit: https://blog.angularindepth.com/the-simple-math-behind-decimal-binary-conversion-algorithms-d30c967c9724
@@ -35,6 +37,50 @@ cout << s << endl ;
 
 The output is F.
 
+Terms: 
+
+long long int input
+
+string hex_num = stores resulting hexadecimal value
+
+How It Works:
+
+while (input > 0)								{
+
+	the computer evaluates input % 16 and
+
+	checks if resulting number is less than
+
+	10. 
+	
+	If so, 
+	
+	simply appends that digit
+
+	to hex_num
+
+	Else
+
+	resulting number converted to one of the five chars below:
+
+	10 = 'A'	ASCII Code: 65
+
+	11 = 'B'	ASCII Code: 66
+
+	12 = 'C'	ASCII Code: 67
+
+	13 = 'D'	ASCII Code: 68
+
+	14 = 'E'	ASCII Code: 69
+
+	15 = 'F'	ASCII Code: 70
+
+	and appends the char to hex_num
+
+	Then input /= 16 and restart this while loop
+}
+
+At the end, the string is printed as: "0x" + hex_num + "."
 */
 
 #include <iostream>
@@ -54,7 +100,7 @@ int main() {
 
 	while (input > 0) {
 
-		if (input % 16 < 10) { // since input % 16, only need to concatenate digit
+		if (input % 16 < 10) { 
 			
 			char digit = (char)((input % 16) + 48); 
 			
@@ -62,9 +108,9 @@ int main() {
 
 		}
 
-		else {// value of ( input % 16 ) >= 10. Need to use letters 
+		else { 
 
-			char letter = (char)((input % 16 - 10) + 65); // 65 is the ASCII code of 'A'
+			char letter = (char)((input % 16 - 10) + 65); 
 			
 			hex_num = letter + hex_num;
 
