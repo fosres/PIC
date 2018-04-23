@@ -31,7 +31,7 @@ stoll, stoull, stof, stod, and stold functions provided by the string library.
 Hint. Consider the following code.
 
 int i = 15;
-char c = static_cast <char >( i -10+’A’);
+char c = static_cast <char >( i -10+â€™Aâ€™);
 string s = string (1,c ); // convert char into a string of length 1
 cout << s << endl ;
 
@@ -71,7 +71,7 @@ while (number > 0)								{
 
 	Else
 
-	resulting number converted to one of the five chars below:
+	resulting number converted to one of the six chars below:
 
 	10 = 'A'	ASCII Code: 65
 
