@@ -65,6 +65,7 @@ int main() {
 		else {// value of ( input % 16 ) >= 10. Need to use letters 
 
 			char letter = (char)((input % 16 - 10) + 65); // 65 is the ASCII code of 'A'
+			
 			hex_num = letter + hex_num;
 
 		}
