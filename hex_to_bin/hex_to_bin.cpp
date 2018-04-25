@@ -49,7 +49,7 @@ long long int pow( long long int base, long long int exponent) {
 	if ( exponent == 0)
 		return 1;
 	for ( int c = 1; c < exponent; c++)
-		base *= base;
+		base *= 16;
 
 	return base;
 }
@@ -68,7 +68,7 @@ int main() {
 
 	long long int number; // Much later const long long int num = number
 
-	for ( long long int c = input.length() - 1; c >= 1; c-- ) {
+	for ( long long int c = input.length() - 1; c >= 2; c-- ) {
 		
 		int base_16_digit = (int)( input[c] );
 		
@@ -79,9 +79,9 @@ int main() {
 
 		if ( base_16_digit >= 65 ) {
 
-			number += pow(16, input.length() - c - 1) * (base_16_digit - A);
+			number += pow(16, input.length() - c - 1) * ( (base_16_digit - A) + 10 );
 		}
-		else {
+		else { // The digit is less than 10
 
 			number += pow(16, input.length() - c - 1) * (base_16_digit - zero);
 
@@ -97,7 +97,7 @@ int main() {
 
 	while ( number > 0 ) {
 
-		digit = (char)( (number%2) - 48 );
+		digit = (char)( (number%2) + 48 );
 
 		binary = digit + binary;
 
@@ -108,8 +108,8 @@ int main() {
 
 	cout << num << endl;
 
-	if ( input.compare( "0" ) == 0) 
-		cout << "Your number in binary is 0b" << input << "." << endl;
+	if ( ( input.compare( "0x0" ) == 0 ) || (input.compare( "0x0" ) == 0 ) )
+		cout << "Your number in binary is 0b0" <<  "." << endl;
 	else
 		cout << "Your number in binary is 0b" << binary << "." << endl;
 
