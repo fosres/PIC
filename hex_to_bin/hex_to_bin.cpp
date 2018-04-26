@@ -195,7 +195,8 @@ int main() {
 
 	char digit;
 
-	while (number > 0) {
+	do 
+		{
 
 		digit = (char)((number % 2) + 48);
 
@@ -203,18 +204,11 @@ int main() {
 
 		number /= 2;
 
-	}
-
-	if ((input.compare("0x0") == 0) || (input.compare("0x0") == 0)) {
-
-		cout << "Your number in binary is 0b0" << "." << endl;
-	}
-	
-	else {
+	} while (number > 0);
 		
 		cout << "Your number in binary is 0b" << binary << "." << endl;
 
+		return 0;
 	}
 
 
-}
