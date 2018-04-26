@@ -1,4 +1,5 @@
 //hex_to_bin.cpp
+// NOW ALL THAT IS LEFT TO SET UP A CONDITIONAL SPECIFIC FOR HEXADECIMAL LETTERS
 /* Write a program that converts a nonnegative 
  *
  * hexadecimal number into a base_q_result number. The input
@@ -111,7 +112,7 @@ int main() {
 
 		digit = (char)( (number%q) + 48 );
 
-		base_q_result = digit + base_q_result;
+		base_q_result = "( " + digit + " )" + base_q_result;
 
 		number /= q;
 
@@ -121,9 +122,9 @@ int main() {
 	cout << num << endl;
 
 	if ( ( input.compare( "0" ) == 0 ) || (input.compare( "0" ) == 0 ) )
-		cout << "Your number in base n is 0" << n << "x" << base_q_result <<  "." << endl;
+		cout << "Your number in base q is 0" << n << "x" << base_q_result <<  "." << endl;
 	else
-		cout << "Your number in base_q_result is 0" << n << "x" << base_q_result << "." << endl;
+		cout << "Your number in base q is 0" << n << "x" << base_q_result << "." << endl;
 
 
 }
