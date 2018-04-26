@@ -10,11 +10,11 @@
  *
  * Your number in binary is 0bXXXX.
  *
- * For example, an input of 0xffa should produce the output 1
+ * For example, an input of 0xffa should produce the output:
  *
  * Your number in binary is 0b111111111010.
  *
- * An input of 0x1C should produce the output
+ * An input of 0x1C should produce the output:
  *
  * Your number in binary is 0b11100.
  *
