@@ -1,5 +1,11 @@
 // cap.cpp
 /*
+WRITTEN BY
+
+Tanveer Salim
+
+for PIC10A
+
 
 Specs:
 
@@ -30,8 +36,120 @@ As With All Matters Of The Heart Youll Know When You Find It
 
 You may not use any libraries aside from iostream and string.
 
+Terms:
+
+bool IN_A_WORD = boolean to check if capitalization is necessary
+
+string input = input string
+
+getline(cin, input);
+
+int i = 0 // Used to iterate through the array
 
 How It Works:
+
+The program iterates through the chars of
+
+input until it hits NULL character.
+
+So:
+
+while ( input[i] != '\0' ) 
+
+	If index is 0 AND
+		
+		the current char is NOT 
+		
+		a punctuation mark AND
+
+		If the char is lowercase
+
+		Then
+		
+		Capitalize char in input
+
+		by subtracting 32 from
+
+		its ASCII code. The general
+
+		format to do this throughout
+
+		this program is:
+
+		input[i] = (char)((int)(input[i] - 32));
+
+		Lastly, now that the first 
+
+		letter of a word has been processed,
+
+		we are thus IN_A_WORD = 1;
+
+		Done
+
+	Else If
+		
+		char is in a word past first letter
+		
+		Then
+			
+			lowercase capital letter. The
+
+			program first checks if the
+
+			char is already in lowercase,
+
+			and if not it must lowercase
+
+			it. The general format for
+
+			lowercasing a char is:
+
+			input[i] = (char)( (int)(input[i] + 32) );
+
+		Done
+
+	Else If
+		
+		char is a first letter of word 
+		
+		and NOT first letter of line,
+
+		Then
+			
+			Computer checks if char
+
+			is lowercase and if so,
+
+			the char must be 
+
+			CAPITALIZED. See Line 
+
+			79 for the formula to
+
+			capitalize a lowercase
+
+			letter. Finally, program
+
+			will set 
+			
+			IN_A_WORD = 1;
+
+		Done
+
+	Else
+
+		Then
+
+		The char is a ' ' or '.'
+
+		The program will simply
+
+		set 
+		
+		IN_A_WORD = 0;
+
+		Done
+
 
 
 
@@ -53,13 +171,13 @@ int main() {
 
 	while (input[i] != '\0') {
 
-		if ( (i == 0) &&			// First letter of line
+		if ( (i == 0) &&			// char of first letter of line
 			
 			(input[i] != ' ') &&
 
 			(input[i] != '.') ) {
 			
-			if ( ( (int)(input[i]) >= 97 ) ) { // Its lowercase. Must Capitalize.
+			if ( ( (int)(input[i]) >= 97 ) ) { // It's lowercase. Must Capitalize.
 				
 				input[i] = (char)((int)(input[i] - 32));
 			}
@@ -67,7 +185,7 @@ int main() {
 			IN_A_WORD = 1;
 		}
 
-		else if ( (input[i] != ' ') // In a word past first letter
+		else if ( (input[i] != ' ') // char is in a word past first letter
 			
 			&& (input[i] != '.') 
 			
@@ -84,8 +202,6 @@ int main() {
 		else if (input[i] != ' ' &&		 // First letter of word and NOT first letter of line
 					
 				input[i] != '.' && 
-				
-				/*( (int)(input[i]) >= 97 ) && */
 				
 				!IN_A_WORD ) { 
 
