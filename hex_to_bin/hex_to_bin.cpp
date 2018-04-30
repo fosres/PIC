@@ -1,5 +1,5 @@
 //hex_to_bin.cpp
-/* 
+/*
 Specs:
 
 Write a program that converts a nonnegative
@@ -44,25 +44,20 @@ Write a program that converts a nonnegative
 *
 */
 
-/* 
-
+/*
 Terms:
+string input = input number;
 
-string input;
-
-const int ASCII_of_A = 65; 
+const int ASCII_of_A = 65;
 
 const int ASCII_of_0 = 48;
 
-long long int number = 0;
-
+long long int number = 0; Stores decimal form of input
 
 */
 
-/* 
-
+/*
 How It Works:
-
 Conceptually, the program converts the hexadecimal
 
 to a long long int by doing the following:
@@ -74,85 +69,81 @@ The computer converts the chars to long long ints
 and does this:
 
 0	x	f	f	a
-		2	1	0
+2	1	0
 
-		See the index numbers above?
+See the index numbers above?
 
-		Those are the exponents in the below equation:
+Those are the exponents in the below equation:
 
-		15(f) * 16^2 + 15(f) * 16^1 + 10(a) * 16^0 
+15(f) * 16^2 + 15(f) * 16^1 + 10(a) * 16^0
 
-		= 0b111111111010
-
+= 0b111111111010
 This example makes clear the general format of
 
 hexadecimal to decimal conversion:
 
-char f, l; 
+char f, l;
 
 0	x	l	..	f
-		n	..	0
+n	..	0
 
-		(long long int)f) * 16^0 + .. + (long long int)f) * 16^n =
-
-		= 0b...
+(long long int)f) * 16^0 + .. + (long long int)f) * 16^n =
+= 0b...
 
 The computer exactly does this by doing the following:
 
 Program first converts hexadecimal to decimal by:
 
-	1. Line 148: Reading digits of hexadecimal string from 
-	
-		right to left before reaching the 'x'
+1. Line 148: Reading digits of hexadecimal string from
 
-		char. Once it reads the 'x' char, for
+right to left before reaching the 'x'
 
-		loop ends.
+char. Once it reads the 'x' char, for
 
-	2. But while in for loop:
-		
-		1. The char is converted to a long
-		
-			long int by
+loop ends.
 
-			typecasting. 
-			
-			If the char is one of the six 
-			
-			hexadecimal letters in lowercase, 
-				
-				the char is immediately
+2. But while in for loop:
 
-				CAPITALIZED by subtracting 32 from
+	1. The char is converted to a long
 
-				the int ASCII code.
+	long int by
+	typecasting.
 
-		2. The computer converts the
+	If the char is one of the six
 
-			char to a long long int, multiply
-			
-			this to pow function, and adds the 
-			
-			result to number.  
+	hexadecimal letters in lowercase,
 
-		3. Finally, the computer must convert
+	the char is immediately
 
-			number to binary. 
+	CAPITALIZED by subtracting 32 from
 
-			So the computer
+	the int ASCII code.
 
-			200 iteratively {
-				
-				Finds remainder of number/2
+	2. The computer converts the
 
-				and appends to string binary.
+	char to a long long int, multiply
 
-				Then number is halved.	
+	this to pow function, and adds the
 
-			} while ( number > 0)
+	result to number.
 
-	211	Finally, string binary is printed.
+3. Finally, the computer must convert
 
+number to binary.
+
+So the computer
+
+Line 200: iteratively {
+
+Finds remainder of number/2
+
+and appends to string binary.
+
+Then number is halved.
+
+} while ( number > 0)
+
+Line 211:	Finally, string binary is printed.
 */
 
 #include <iostream>
@@ -177,11 +168,11 @@ int main() {
 
 	cin >> input;
 
-	const int ASCII_of_A = 65; 
+	const int ASCII_of_A = 65;
 
 	const int ASCII_of_0 = 48;
 
-	long long int number = 0; 
+	long long int number = 0;
 
 	for (long long int c = input.length() - 1; c >= 2; c--) { // starting from last char to third char, inclusive
 
@@ -198,7 +189,7 @@ int main() {
 		}
 		else { // The digit is less than 10
 
-			number += pow(16, input.length() - c - 1) * (base_16_digit - ASCII_of_0 );
+			number += pow(16, input.length() - c - 1) * (base_16_digit - ASCII_of_0);
 
 		}
 
@@ -208,8 +199,8 @@ int main() {
 
 	char digit;
 
-	do 
-		{
+	do
+	{
 
 		digit = (char)((number % 2) + 48);
 
@@ -218,10 +209,8 @@ int main() {
 		number /= 2;
 
 	} while (number > 0);
-		
-		cout << "Your number in binary is 0b" << binary << "." << endl;
 
-		return 0;
-	}
+	cout << "Your number in binary is 0b" << binary << "." << endl;
 
-
+	return 0;
+}
