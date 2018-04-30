@@ -38,7 +38,7 @@ You may not use any libraries aside from iostream and string.
 
 Terms:
 
-bool IN_A_WORD = boolean to check if capitalization is necessary
+bool SHOULD_BE_LOWERCASE = boolean to check if letter should be lowercase 
 
 string input = input string
 
@@ -60,11 +60,11 @@ while ( input[i] != '\0' )
 		
 		the current char is NOT 
 		
-		a punctuation mark AND
-
-		If the char is lowercase
+		a punctuation mark
 
 		Then
+
+		If the char is lowercase
 		
 		Capitalize char in input
 
@@ -82,7 +82,7 @@ while ( input[i] != '\0' )
 
 		letter of a word has been processed,
 
-		we are thus IN_A_WORD = 1;
+		we thus set SHOULD_BE_LOWERCASE = 1;
 
 		Done
 
@@ -132,7 +132,7 @@ while ( input[i] != '\0' )
 
 			will set 
 			
-			IN_A_WORD = 1;
+			SHOULD_BE_LOWERCASE = 1;
 
 		Done
 
@@ -146,11 +146,9 @@ while ( input[i] != '\0' )
 
 		set 
 		
-		IN_A_WORD = 0;
+		SHOULD_BE_LOWERCASE = 0;
 
 		Done
-
-
 
 
 */
@@ -161,13 +159,17 @@ using namespace std;
 
 int main() {
 
-	bool IN_A_WORD = 0;
+	bool SHOULD_BE_LOWERCASE = 0;
+
+	cout << "Input a sentence:" << endl;
 
 	string input;
 
 	getline(cin, input);
 
 	int i = 0;
+
+	cout << "The correct capitalization is:" << endl;
 
 	while (input[i] != '\0') {
 
@@ -182,14 +184,14 @@ int main() {
 				input[i] = (char)((int)(input[i] - 32));
 			}
 
-			IN_A_WORD = 1;
+			SHOULD_BE_LOWERCASE = 1;
 		}
 
 		else if ( (input[i] != ' ') // char is in a word past first letter
 			
 			&& (input[i] != '.') 
 			
-			&& IN_A_WORD ) {
+			&& SHOULD_BE_LOWERCASE ) {
 
 			 if ( (int)(input[i]) < 97 ) { // Must lowercase CAPITAL LETTER
 
@@ -203,18 +205,18 @@ int main() {
 					
 				input[i] != '.' && 
 				
-				!IN_A_WORD ) { 
+				!SHOULD_BE_LOWERCASE ) { 
 
 			if ( ( (int)(input[i]) >= 97 ) ) {
 
-					input[i] = (char)((int)(input[i] - 32)); //Lowercase Letter MUST BE CAPITALIZED
+					input[i] = (char)( (int)(input[i] - 32) ); //Lowercase Letter MUST BE CAPITALIZED
 			}
-				IN_A_WORD = 1;
+				SHOULD_BE_LOWERCASE = 1;
 		}
 
 		else { // input[i] == ' ' XOR input[i] == '.'
 
-			IN_A_WORD = 0;
+			SHOULD_BE_LOWERCASE = 0;
 
 		}
 
