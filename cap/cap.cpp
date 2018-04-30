@@ -14,41 +14,63 @@ int main() {
 
 	int i = 0;
 
-	while ( input[i] !='\0' ) {
+	while (input[i] != '\0') {
 
-		if ( (input[i] != ' ' ) && ( input[i] != '.' ) && !IN_A_WORD ) {
+		if (i == 0 &&			// First letter of line
+			
+			(input[i] != ' ') &&
 
-			if ( (int)(input[i]) >= 97 ) {
+			(input[i] != '.') ) {
+			
+			input[i] = (char)( (int)(input[i] - 32) );
 
-				input[i] = (char)( (int)( input[i] - 32) );
+			IN_A_WORD = 1;
+		}
 
-			}
+		else if ( (input[i] != ' ') // In a word past first letter
+			
+			&& (input[i] != '.') 
+			
+			&& IN_A_WORD ) {
 
+			if ( (int)(input[i]) < 97 ) { // must lowercase CAPITAL LETTER
+
+				input[i] = (char)( (int)(input[i] + 32) );
+
+			} 
+			
+		}
+
+		else if (input[i] != ' ' &&  
+					
+				input[i] != '.' && 
+				
+				( (int)(input[i]) >= 97) && 
+				
+				!IN_A_WORD ) { // First letter of word
+
+				input[i] = (char)( (int)(input[i] - 32) ); //Lowercase Letter MUST BE CAPITALIZED
+				
 				IN_A_WORD = 1;
-
-			}
-
-		else if ( input[i] != ' ' && input[i] != '.' && ( (int)(input[i]) < 97 ) && IN_A_WORD ) {
-
-			input[i] = (char)( (int)( input[i]
-+ 32));
 		}
 
 		else { // input[i] == ' ' XOR input[i] == '.'
 
-			IN_A_WORD = 0;	
+			IN_A_WORD = 0;
 
 		}
 
-	cout << input[i];
+		cout << input[i];
 
-	i++;
+		i++;
 
-		}
+	}
+
+	cout << '\n';
 
 	return 0;
 
-	}
+}
 
 
 
