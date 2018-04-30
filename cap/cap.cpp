@@ -1,4 +1,41 @@
+// cap.cpp
+/*
 
+Specs:
+
+Write a program that enforces the following capitalization rule: the first letter of every word (including
+articles, coordinating conjunctions, and prepositions) should be capitalized. The input can
+have capital letters, lower case letters, spaces, and periods. No need to handle other punctuation.
+The input and output should be exactly:
+
+Input a sentence:
+[USER ENTERS A STRING]
+The correct capitalization is:
+XXXX
+
+For example, an input of
+If YOU come. at four tHEN at THREE i shall Begin to be happy.
+
+should produce the output
+
+If You Come. At Four Then At Three I Shall Begin To Be Happy.
+
+An input of
+
+as with all MATTERS oF the HEART youll kNOW when you find IT
+
+should produce the output
+
+As With All Matters Of The Heart Youll Know When You Find It
+
+You may not use any libraries aside from iostream and string.
+
+
+How It Works:
+
+
+
+*/
 
 #include <iostream>
 #include <string>
