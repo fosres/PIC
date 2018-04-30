@@ -16,7 +16,7 @@ int main() {
 
 	while (input[i] != '\0') {
 
-		if (i == 0 &&			// First letter of line
+		if ( (i == 0) &&			// First letter of line
 			
 			(input[i] != ' ') &&
 
@@ -33,7 +33,7 @@ int main() {
 			
 			&& IN_A_WORD ) {
 
-			if ( (int)(input[i]) < 97 ) { // must lowercase CAPITAL LETTER
+			 if ( (int)(input[i]) < 97 ) { // Must lowercase CAPITAL LETTER
 
 				input[i] = (char)( (int)(input[i] + 32) );
 
@@ -41,16 +41,18 @@ int main() {
 			
 		}
 
-		else if (input[i] != ' ' &&  
+		else if (input[i] != ' ' &&		 // First letter of word and NOT first letter of line
 					
 				input[i] != '.' && 
 				
-				( (int)(input[i]) >= 97) && 
+				/*( (int)(input[i]) >= 97 ) && */
 				
-				!IN_A_WORD ) { // First letter of word
+				!IN_A_WORD ) { 
 
-				input[i] = (char)( (int)(input[i] - 32) ); //Lowercase Letter MUST BE CAPITALIZED
-				
+			if ( ( (int)(input[i]) >= 97 ) ) {
+
+					input[i] = (char)((int)(input[i] - 32)); //Lowercase Letter MUST BE CAPITALIZED
+			}
 				IN_A_WORD = 1;
 		}
 
