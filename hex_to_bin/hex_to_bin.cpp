@@ -40,6 +40,8 @@ Write a program that converts a nonnegative
 * Hint. You may find s.erase(.., ..) and s.input.length() useful,
 *
 * where s is of type string.
+*
+*
 */
 
 /* 
@@ -129,16 +131,27 @@ Program first converts hexadecimal to decimal by:
 
 			char to a long long int, multiply
 			
-			this to pow function, and add the 
+			this to pow function, and adds the 
 			
 			result to number.  
 
-			
+		3. Finally, the computer must convert
 
+			number to binary. 
 
+			So the computer
 
+			200 iteratively {
+				
+				Finds remainder of number/2
 
+				and appends to string binary.
 
+				Then number is halved.	
+
+			} while ( number > 0)
+
+	211	Finally, string binary is printed.
 
 */
 
