@@ -22,7 +22,10 @@ int main() {
 
 			(input[i] != '.') ) {
 			
-			input[i] = (char)( (int)(input[i] - 32) );
+			if ( ( (int)(input[i]) >= 97 ) ) { // Its lowercase. Must Capitalize.
+				
+				input[i] = (char)((int)(input[i] - 32));
+			}
 
 			IN_A_WORD = 1;
 		}
