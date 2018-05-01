@@ -77,10 +77,21 @@ string roman_numeral;
 
 int main() {
 
+	cout << "Input a number in Arabic numerals:\n";
+
 	cin >> input;
+	
+	if ( input == 0 ) {
+    
+    
+    
+    
+  }
 
     while ( input != 0 ) {
-
+  
+  
+  
 	if ( input >= 1000 ) {
 
 		input = input - 1000;
@@ -200,18 +211,8 @@ int main() {
 
     }
 	
-	cout << roman_numeral << endl;
+	cout << roman_numeral << " is your number in Roman numerals." << endl;
 	
 	return 0;
 
 }
-
-
-
-
-
-
-
-
-
-
