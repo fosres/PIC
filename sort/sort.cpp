@@ -68,7 +68,7 @@ int main() {
 
 	while ( i < n ) {
 
-		cout << "Input number (count " << i+1 << ")" << endl;
+		cout << "Input number (count " << i+1 << "):" << endl;
 		
 		cin >> input;
 
@@ -100,11 +100,11 @@ int main() {
 
 }
 
+cout << "The sorted input is: " << endl;
+
 for ( int i = 0; i < n; i++ ) {
 
-	cout << "The sorted input is: " << endl;
-
-	cout << input_arr[i] << "(count " << i+1 << ")" << endl;
+	cout << input_arr[i] << " (count " << i+1 << ")" << endl;
 
 
 }
