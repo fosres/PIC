@@ -59,3 +59,64 @@ bool boardFull ( ticTacToeBoard board )              {
 return true;
   
 }
+
+int idx(int x, int y)                   {
+
+  return ((x-1)+4*(y-1));
+
+}
+int winner ( ticTacToeBoard board )     {
+
+  // what if a value is still zero in the row or column?
+
+  bool is_there_a_winner = 0;
+
+  // check if there is a vertical column winner
+
+  for ( int i = 1; i <= 4; i++)     {
+
+    if ((points[idx(i,1)] != 0)   {
+        &&
+        (points[idx(i,1)]       
+        ==
+        points[idx(i,2)]
+        ==
+        points[idx(i,3)]
+        ==
+        points[idx(i,4)]
+        )
+        )
+          is_there_a_winner = 1;
+
+
+    }
+
+
+  }
+  // check if there is a horizontal row winner
+  for ( int j = 1; j <= 4; i++)     {
+
+    if ((points[idx(1,j)] != 0)   {
+        &&
+        (points[idx(1,j)]       
+        ==
+        points[idx(2,j)]
+        ==
+        points[idx(3,j)]
+        ==
+        points[idx(4,j)]
+        )
+        )
+          is_there_a_winner = 1;
+
+
+    }
+
+
+  }
+
+
+
+return is_there_a_winner;
+
+}
