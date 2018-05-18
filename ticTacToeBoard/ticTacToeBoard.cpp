@@ -94,7 +94,7 @@ int winner ( ticTacToeBoard board )     {
 
   }
   // check if there is a horizontal row winner
-  for ( int j = 1; j <= 4; i++)     {
+  for ( int j = 1; j <= 4; j++)     {
 
     if ((points[idx(1,j)] != 0)   {
         &&
@@ -114,6 +114,41 @@ int winner ( ticTacToeBoard board )     {
 
 
   }
+
+  // check if there is a diagonal row winner
+
+      if ((points[idx(1,1)] != 0)   {
+        &&
+        (points[idx(1,1)]       
+        ==
+        points[idx(2,2)]
+        ==
+        points[idx(3,2)]
+        ==
+        points[idx(4,4)]
+        )
+        )
+          is_there_a_winner = 1;
+
+
+    }
+
+    if ((points[idx(4,1)] != 0)   {
+        &&
+        (points[idx(4,1)]       
+        ==
+        points[idx(3,2)]
+        ==
+        points[idx(2,3)]
+        ==
+        points[idx(1,4)]
+        )
+        )
+          is_there_a_winner = 1;
+
+
+    }
+
 
 
 
