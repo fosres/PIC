@@ -28,10 +28,11 @@ void initBoard ( ticTacToeBoard & board ) {
     board.points[i]= 0;
     
   }
-  
+}
+
 bool isEmpty ( ticTacToeBoard board , int x , int y ) {
   
-  return (points[(x-1)+4*(y-1)]  == 0)
+  return (board.points[(x-1)+4*(y-1)]  == 0);
   
   
 }
@@ -75,17 +76,24 @@ int winner ( ticTacToeBoard board )     {
 
   for ( int i = 1; i <= 4; i++)     {
 
-    if ((points[idx(i,1)] != 0)   {
+    if ((board.points[idx(i,1)] != 0)   
         &&
-        (points[idx(i,1)]       
+        (board.points[idx(i,1)]       
         ==
-        points[idx(i,2)]
+        board.points[idx(i,2)]
+	)
+	&&
+        (board.points[idx(i,2)]
         ==
-        points[idx(i,3)]
+        board.points[idx(i,3)]
+	)
+	&&
+        (board.points[idx(i,3)]
         ==
-        points[idx(i,4)]
-        )
-        )
+        board.points[idx(i,4)]
+	)
+        )				{
+
           is_there_a_winner = 1;
 
 
@@ -94,20 +102,26 @@ int winner ( ticTacToeBoard board )     {
 
   }
   // check if there is a horizontal row winner
-  for ( int j = 1; j <= 4; j++)     {
+  for ( int j = 1; j <= 4; j++)     		{
 
-    if ((points[idx(1,j)] != 0)   {
+    if ((board.points[idx(1,j)] != 0)   
         &&
-        (points[idx(1,j)]       
+        (board.points[idx(1,j)]       
         ==
-        points[idx(2,j)]
+        board.points[idx(2,j)])
+	&&
+        (board.points[idx(2,j)]
         ==
-        points[idx(3,j)]
+        board.points[idx(3,j)]
+	)
+	&&
+        (board.points[idx(3,j)]
         ==
-        points[idx(4,j)]
-        )
-        )
-          is_there_a_winner = 1;
+        board.points[idx(4,j)]
+	)
+        )				{
+          
+	    is_there_a_winner = 1;
 
 
     }
@@ -117,33 +131,47 @@ int winner ( ticTacToeBoard board )     {
 
   // check if there is a diagonal row winner
 
-      if ((points[idx(1,1)] != 0)   {
+      if ((board.points[idx(1,1)] != 0)   
         &&
-        (points[idx(1,1)]       
+        (board.points[idx(1,1)]       
         ==
-        points[idx(2,2)]
+        board.points[idx(2,2)]
+	)
+	&&
+        (board.points[idx(2,2)]
         ==
-        points[idx(3,2)]
+        board.points[idx(3,2)]
+	)
+	&&
+        (board.points[idx(3,2)]
         ==
-        points[idx(4,4)]
-        )
-        )
-          is_there_a_winner = 1;
+        board.points[idx(4,4)]
+	)
+        )				{
+          
+	      is_there_a_winner = 1;
 
 
     }
 
-    if ((points[idx(4,1)] != 0)   {
+    if ((board.points[idx(4,1)] != 0)   
         &&
-        (points[idx(4,1)]       
+        (board.points[idx(4,1)]       
         ==
-        points[idx(3,2)]
+        board.points[idx(3,2)]
+	)
+	&&
+        (board.points[idx(3,2)]
         ==
-        points[idx(2,3)]
+        board.points[idx(2,3)]
+	)
+	&&
+        (board.points[idx(2,3)]
         ==
-        points[idx(1,4)]
-        )
-        )
+        board.points[idx(1,4)]
+	)
+        )				{
+
           is_there_a_winner = 1;
 
 
