@@ -140,10 +140,10 @@ int winner ( ticTacToeBoard board )     {
 	&&
         (board.points[idx(2,2)]
         ==
-        board.points[idx(3,2)]
+        board.points[idx(3,3)]
 	)
 	&&
-        (board.points[idx(3,2)]
+        (board.points[idx(3,3)]
         ==
         board.points[idx(4,4)]
 	)
@@ -178,8 +178,12 @@ int winner ( ticTacToeBoard board )     {
     }
 
 
+if (is_there_a_winner == 1) 		{
+	
+	return board.curr_player;	
 
+}
 
-return is_there_a_winner;
+return 0; // NO WINNER
 
 }
