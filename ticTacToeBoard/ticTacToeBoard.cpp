@@ -178,12 +178,6 @@ int winner ( ticTacToeBoard board )     {
     }
 
 
-if (is_there_a_winner == 1) 		{
-	
-	return board.curr_player;	
-
-}
-
-return 0; // NO WINNER
+return is_there_a_winner ? board.curr_player : 0;
 
 }
