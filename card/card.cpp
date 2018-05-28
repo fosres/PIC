@@ -39,7 +39,7 @@ class card			{
 	void card::setSuit(char s)
 	{
 		
-		assert (suit == 'C'||suit=='D'||suit=='H'||suit=='S');
+		assert (s == 'C'||s=='D'||s=='H'||s=='S');
 		suit = s;
 
 
