@@ -6,6 +6,8 @@ bool hand::operator<(hand rhs)
 
 	if ( (c1.getNum() == c2.getNum()) )
 		return 0;
+	else if (rhs.c1.getNum() == rhs.c2.getNum())
+		return 1;
 	else if ( c1.getSuit() == c2.getSuit())
 	{
 		if (rhs.c1.getSuit() != rhs.c2.getSuit())

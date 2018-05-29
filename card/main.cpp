@@ -32,18 +32,17 @@ int main() {
 
   cout << "Hw 8 Examples below" << endl;
 
-  h1.c1.setNum(3);
-  h1.c2.setNum(3);
-  h1.c1.setSuit('C');
-  h1.c2.setSuit('D');
+// Tests pass for 3C 3D 9S 2S
 
-  h2.c1.setNum(9);
-  h2.c2.setNum(2);
-  h2.c1.setSuit('S');
-  h2.c2.setSuit('S');
+  h1.c1.setNum(9);
+  h1.c2.setNum(2);
+  h1.c1.setSuit('S');
+  h1.c2.setSuit('S');
 
+  h2.c1.setNum(8);
+  h2.c2.setNum(7);
+  h2.c1.setSuit('D');
+  h2.c2.setSuit('D');
 
-  cout << ( h1 == h2 ) << endl; // WRONG!
-  cout << ( h2 >= h1 ) << endl;
   cout << ( h1 > h2 ) << endl;
 }
