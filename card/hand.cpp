@@ -12,7 +12,7 @@ bool hand::operator<(hand rhs)
 	{
 		if (rhs.c1.getSuit() != rhs.c2.getSuit())
 			return 0;
-		else //within the same kind of hands
+		else //Two hands are of the same kind
 		{
 			if (c1.getNum() > rhs.c1.getNum()) // see if the c1 of lhs is greater or equal to
 				return 0;
