@@ -34,21 +34,21 @@ void deck::print_deck() {
 		
 		for (int i = 13; i < 26; i++)
 		{
-			stack[i].setNum(i+1);
+			stack[i].setNum(i%13+1);
 
 			stack[i].setSuit('D');
 		}
 
 		for ( int i = 26; i < 39; i++)
 		{
-			stack[i].setNum(i+1);
+			stack[i].setNum(i%13+1);
 
 			stack[i].setSuit('H');
 		}
 
 		for ( int i = 39; i < 52; i++)
 		{
-			stack[i].setNum(i+1);
+			stack[i].setNum(i%13+1);
 
 			stack[i].setSuit('S');
 		}

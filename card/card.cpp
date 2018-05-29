@@ -65,35 +65,35 @@ class card			{
 		if ( num == 1)
 			output = "Ace of ";
 		else if (num == 2)
-			output = "Two of ";
+			output = "2 of ";
 		else if (num == 3)
-			output = "Three of ";
+			output = "3 of ";
 		else if (num == 4)
-			output = "Four of ";
+			output = "4 of ";
 		else if (num == 5)
-			output = "Five of ";
+			output = "5 of ";
 		else if (num == 6)
-			output = "Six of ";
+			output = "6 of ";
 		else if (num == 7)
-			output = "Seven of ";
+			output = "7 of ";
 		else if (num == 8)
-			output = "Eight of ";
+			output = "8 of ";
 		else if (num == 9)
-			output = "Nine of ";
+			output = "9 of ";
 		else if (num == 10)
-			output = "Ten of ";
+			output = "10 of ";
 		else if (num == 11)
-			output = "Eleven of ";
+			output = "11 of ";
 		else if (num == 12)
-			output = "Twelve of ";
+			output = "12 of ";
 		else
 			output = "King of ";
 		if (suit=='C')
 			output = output + "Clubs";
 		else if (suit=='D')
-			output = output + "Hearts";
-		else if (suit=='H')
 			output = output + "Diamonds";
+		else if (suit=='H')
+			output = output + "Hearts";
 		else
 			output = output + "Spades";
 	
