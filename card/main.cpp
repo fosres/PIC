@@ -34,23 +34,23 @@ int main() {
 
 // Tests pass for 3C 3D 9S 2S
 
-  h1.c1.setNum(8);
-  h1.c2.setNum(6);
-  h1.c1.setSuit('H');
-  h1.c2.setSuit('H');
+  h1.c1.setNum(3);
+  h1.c2.setNum(3);
+  h1.c1.setSuit('C');
+  h1.c2.setSuit('S');
 
-  h2.c1.setNum(1); // Ace
-  h2.c2.setNum(11); // Jack
-  h2.c1.setSuit('H');
-  h2.c2.setSuit('D');
+  h2.c1.setNum(3); // Ace
+  h2.c2.setNum(3); // Jack
+  h2.c1.setSuit('D');
+  h2.c2.setSuit('H');
 
-  cout << ( h1 > h2 ) << endl; // TRUE
+  cout << ( h1 > h2 ) << endl; // FALSE
   
   cout << (h1 < h2 ) << endl; // FALSE
 
-  cout << ( h1 == h2) << endl; //FALSE
+  cout << ( h1 == h2) << endl; // TRUE
 
   cout << ( h1 >= h2 ) << endl; // TRUE
 
-  cout << ( h1 <= h2 ) << endl; //FALSE
+  cout << ( h1 <= h2 ) << endl; // TRUE
 }
