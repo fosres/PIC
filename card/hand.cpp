@@ -1,35 +1,56 @@
 #include <iostream>
 #include "hand.h"
 
-bool hand::operator<(hand rhs)
+int getHigh(hand input) //returns highest num value between cards c1 and c2
 {
 
-	if ( (c1.getNum() == c2.getNum()) )
-		return 0;
-	else if (rhs.c1.getNum() == rhs.c2.getNum())
-		return 1;
-	else if ( c1.getSuit() == c2.getSuit())
-	{
-		if (rhs.c1.getSuit() != rhs.c2.getSuit())
-			return 0;
-		else //Two hands are of the same kind
-		{
-			if (c1.getNum() > rhs.c1.getNum()) // see if the c1 of lhs is greater or equal to
-				return 0;
-			else if (c1.getNum() == rhs.c1.getNum())
-			{
-				if (c2.getNum() >= rhs.c2.getNum())
-					return 0;
-				else // c2 of lhs ACTUALLY IS LESS, but c1s of lhs and rhs are same
-					return 1;
+	if (input.c1.getNum() > input.c2.getNum())
+		return input.c1.getNum();
+	else
+		return input.c2.getNum();
+}
 
-			}
-				
-		}
-	}
-	// all above fails, two hands are equal
-		return 0;
+int getLow(hand input) //returns lowest num value between cards c1 and c2
+{
 
+	if (input.c1.getNum() < input.c2.getNum())
+		return input.c1.getNum();
+	else
+		return input.c2.getNum();
+
+}
+
+bool hand::operator<(hand rhs)
+{
+	int lhsStrength, rhsStrength;
+
+	if (c1.getNum()==c2.getNum())
+		lhsStrength = 3;
+	else if (c1.getSuit()==c2.getSuit())
+		lhsStrength = 2;
+	else 
+		lhsStrength = 1;
+	if (rhs.c1.getNum()==rhs.c2.getNum())
+		rhsStrength = 3;
+	else if (rhs.c1.getSuit() == rhs.c2.getSuit())
+		rhsStrength = 2;
+	else
+		rhsStrength = 1;
+	if (lhsStrength < rhsStrength)
+		return true;
+	else if (lhsStrength > rhsStrength)
+		return false;
+	// else compare highest card
+	if (getHigh(*this) < getHigh(rhs))
+		return true;
+	else if (getHigh(*this) > getHigh(rhs))
+		return false;
+	//else compare lowest card
+	if (getLow(*this) < getLow(rhs))
+		return true;
+	else if (getLow(*this) > getLow(rhs))
+		return false;
+	return false;
 }
 
 bool hand::operator>=(hand rhs)
@@ -40,18 +61,19 @@ bool hand::operator>=(hand rhs)
 
 bool hand::operator==(hand rhs)
 {
-	return ( !( *this < rhs ) && !( rhs < *this)); // What's wrong with ( rhs >= *this)?
+	return !( *this < rhs || *this > rhs ); // What's wrong with ( rhs >= *this)?
+
+}
+
+bool hand::operator>(hand rhs)
+{
+	return (rhs < *this);	
 
 }
 
 bool hand::operator<=(hand rhs)
 {
-	return ((*this < rhs) || (*this == rhs));	
-
-}
-bool hand::operator>(hand rhs)
-{
-	return !(*this <= rhs);	
+	return !(*this > rhs);	
 
 }
 
