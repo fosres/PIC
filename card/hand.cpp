@@ -61,7 +61,7 @@ bool hand::operator>=(hand rhs)
 
 bool hand::operator==(hand rhs)
 {
-	return !( *this < rhs || *this > rhs ); // What's wrong with ( rhs >= *this)?
+	return !( *this < rhs || *this > rhs ); 
 
 }
 
