@@ -1,6 +1,7 @@
-#ifndef __CARD_H__
-#define __CARD_H__
+#ifndef __POLYNOMIAL_H__
+#define __POLYNOMIAL_H__
 #include <cassert>
+#include <cmath>
 #include <iostream>
 #include <vector>
 using std::vector;
@@ -33,6 +34,18 @@ int polynomial::degree()
 
 }
 
+int polynomial::nonzeroTerms()
+{
+	
+	int num_zero_terms = 0;
+	for ( int i = 0; i < v.capacity(); i++)
+		if ( v[i] != 0)
+			num_zero_terms++;
+
+	return num_zero_terms;
+
+}
+
 void polynomial::setCoeff(int deg, double c)
 {
 
@@ -40,11 +53,43 @@ void polynomial::setCoeff(int deg, double c)
 
 	if ( deg >= v.size() - 1)
 	{
-		v.resize(deg-1);	
+		int biggest_index = (int) v.capacity()-1;	
+
+		v.resize(deg+1);	
+		
+		v[deg] = c;
+	}
+	else // (deg < v.size()-1)
+	{
+
+		v[deg] = c;
 
 	}
 
 }
+
+double polynomial::getCoeff(int deg)
+{
+	assert (deg >= 0);
+
+	if ( (deg > v.capacity()-1) )
+		return 0;
+	else
+		return v[deg];
+
+}
+
+  double operator()(double x)
+{
+
+	double ans  = 0;
+
+	for (int i = 0; i < v.capacity(); i++)
+		ans += getCoeff(i)*pow(x,i);
+
+
+}
+
 
 polynomial operator+(double c, polynomial p);
 polynomial operator*(double c, polynomial p);
