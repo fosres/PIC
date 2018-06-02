@@ -92,7 +92,7 @@ double polynomial::getCoeff(int deg)
 
 
 // just add c to 0th element of vector
-polynomial operator+(double c, polynomial p)
+polynomial polynomial::operator+(double c, polynomial p)
 {
 	p.setCoeff(0,p.getCoeff(0)+c);	
 	
@@ -100,7 +100,7 @@ polynomial operator+(double c, polynomial p)
 
 }
 
-polynomial operator*(double c, polynomial p)
+polynomial polynomial::operator*(double c, polynomial p)
 {
 	p.setCoeff(0,p.getCoeff(0)*c);	
 	
@@ -108,24 +108,37 @@ polynomial operator*(double c, polynomial p)
 
 }
 
-  polynomial operator+(polynomial p)
+  polynomial polynomial::operator+(polynomial p)
 {
 	polynomial sum;
-	if ( *this.capacity() > p.capacity() )
-		sum.resize(this.capacity());
-	else // *this.capacity() <= p.capacity()
-		sum.resize(p.capacity());
 
-	for ( int i = 0; i < sum.capacity(); i++)
-			
+	if ( v.capacity() > p.v.capacity() )
+		sum.v.resize(v.capacity());
+	else // capacity() <= p.capacity()
+		sum.v.resize(p.v.capacity());
+
+	for ( int i = 0; i < sum.v.capacity(); i++)
+		sum.v[i] = v[i] + p.v[i];
+
+	return sum;
 
 }
   polynomial& operator+=(polynomial p);
-  polynomial operator-();
+
+  polynomial polynomial::operator-()
+{
+
+		
+
+
+
+}
+
   polynomial operator-(polynomial p);
   polynomial& operator-=(polynomial p);
   polynomial operator*(polynomial p);
   polynomial& operator*=(polynomial p);
+
 
 
 std::ostream& operator<<(std::ostream& s, polynomial p);

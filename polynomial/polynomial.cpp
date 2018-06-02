@@ -1,8 +1,6 @@
 #include "polynomial.h"
 #include <iostream>
 
-
-
 std::ostream& operator<<(std::ostream& s, polynomial p) {
   if (p.degree() == 0 && p.getCoeff(0) == 0.0)
     return (s << double(0));
