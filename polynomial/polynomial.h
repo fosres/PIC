@@ -92,7 +92,7 @@ double polynomial::getCoeff(int deg)
 
 
 // just add c to 0th element of vector
-polynomial polynomial::operator+(double c, polynomial p)
+polynomial operator+(double c, polynomial p)
 {
 	p.setCoeff(0,p.getCoeff(0)+c);	
 	
@@ -100,7 +100,7 @@ polynomial polynomial::operator+(double c, polynomial p)
 
 }
 
-polynomial polynomial::operator*(double c, polynomial p)
+polynomial operator*(double c, polynomial p)
 {
 	p.setCoeff(0,p.getCoeff(0)*c);	
 	
@@ -125,16 +125,23 @@ polynomial polynomial::operator*(double c, polynomial p)
 }
   polynomial& operator+=(polynomial p);
 
-  polynomial polynomial::operator-()
+  polynomial polynomial::operator-(polynomial p)
 {
+	polynomial difference;
 
-		
+	if ( v.capacity() > p.v.capacity() )
+		difference.v.resize(v.capacity());
 
+	else // capacity() <= p.capacity()
+		difference.v.resize(p.v.capacity());
 
+	for ( int i = 0; i < difference.v.capacity(); i++)
+		difference.v[i] = v[i] - p.v[i];
+
+	return difference;
 
 }
 
-  polynomial operator-(polynomial p);
   polynomial& operator-=(polynomial p);
   polynomial operator*(polynomial p);
   polynomial& operator*=(polynomial p);
