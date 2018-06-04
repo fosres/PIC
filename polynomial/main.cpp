@@ -55,6 +55,6 @@ int main() {
   pic10a::polynomial p4 = -1 + 2 * x + x*x*x;
   cout << p4 << endl;
   cout << p4(0.0) << endl;
-  pic10a::plot(p4*p4);
+  // pic10a::plot(p4*p4);
 
 }
