@@ -5,7 +5,7 @@
 #include <iostream>
 #include <vector>
 
-namespace pic10a
+namespace pic10a 
 {
 class polynomial {
 private: 

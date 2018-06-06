@@ -168,6 +168,7 @@ pic10a::polynomial pic10a::polynomial::operator-()
 		difference.v.resize(v.size());
 
 		p.v.resize(v.size());
+
 	}
 
 	else // v.size() <= p.size()
@@ -175,11 +176,12 @@ pic10a::polynomial pic10a::polynomial::operator-()
 		difference.v.resize(p.v.size());
 
 		v.resize(p.v.size());
-	}
 
+	}
 
 	for ( int i = 0; i < difference.v.size(); i++)
 		difference.v[i] = v[i] - p.v[i];
+
 
 	return difference;
 

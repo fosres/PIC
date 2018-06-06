@@ -46,6 +46,7 @@ int main() {
   cout << p2 - p3 << endl;
   cout << p2 - p2 << endl;
   cout << p2 * p3 << endl;
+  cout << p3 - p3 << endl;
 
   cout << (p2 + p3).degree() << endl; //should be 1
   cout << (p2 - p3).degree() << endl; //should be 0
