@@ -155,10 +155,7 @@ pic10a::polynomial pic10a::operator*(double c, pic10a::polynomial p)
 pic10a::polynomial pic10a::polynomial::operator-()
 {
 
-	for ( int i = 0; i < v.size(); i++)
-		v[i] = -v[i];
-
-	return (*this);
+	return -1 * (*this);
 
 }
 

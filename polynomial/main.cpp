@@ -21,7 +21,7 @@ int main() {
   cout << p1 << endl;
   cout << p1.degree() << endl; //should be 3
   cout << p1.nonzeroTerms() << endl; //should be 2
-
+  cout << endl;
 
  
   pic10a::polynomial p2;
@@ -32,6 +32,7 @@ int main() {
   p3.setCoeff(1, 1);
   cout << p2 << endl;
   cout << p3 << endl;
+  cout << endl;
   
   cout << p2.getCoeff(0) << endl;
   cout << p2.getCoeff(1) << endl;
@@ -39,6 +40,7 @@ int main() {
   cout << p2.getCoeff(3) << endl; //should be zero
   cout << p2.getCoeff(4) << endl; //should be zero
   cout << p2.getCoeff(5) << endl; //should be zero
+  cout << endl;
   
   cout << p2 + p3 << endl;
   cout << p2 - p3 << endl;
