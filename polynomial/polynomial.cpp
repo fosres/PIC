@@ -68,15 +68,17 @@ double pic10a::polynomial::getCoeff(int deg)
 
 
 // just add c to 0th element of vector
-pic10a::polynomial operator+(double c, pic10a::polynomial p)
+pic10a::polynomial pic10a::operator+(double c, pic10a::polynomial p)
 {
-	p.setCoeff(0,p.getCoeff(0)+c);	
-	
-	return p;
+	pic10a::polynomial cp;
 
+	cp.setCoeff(0, c);
+
+	return cp + p; // turn integer in (integer) * (polynomial) into a polynomial object!!!!
+	
 }
 
-pic10a::polynomial operator*(double c, pic10a::polynomial p)
+pic10a::polynomial pic10a::operator*(double c, pic10a::polynomial p)
 {
 	pic10a::polynomial cp;
 
@@ -150,6 +152,16 @@ pic10a::polynomial operator*(double c, pic10a::polynomial p)
 
 }
 
+pic10a::polynomial pic10a::polynomial::operator-()
+{
+
+	for ( int i = 0; i < v.size(); i++)
+		v[i] = -v[i];
+
+	return (*this);
+
+}
+
   pic10a::polynomial pic10a::polynomial::operator-(pic10a::polynomial p)
 {
 	pic10a::polynomial difference;
@@ -211,7 +223,7 @@ pic10a::polynomial operator*(double c, pic10a::polynomial p)
 
 
 
-std::ostream& operator<<(std::ostream& s, pic10a::polynomial p) {
+std::ostream& pic10a::operator<<(std::ostream& s, pic10a::polynomial p) {
   if (p.degree() == 0 && p.getCoeff(0) == 0.0)
     return (s << double(0));
   for (int i = p.degree(); i >= 0; i--) {
