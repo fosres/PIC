@@ -4,14 +4,13 @@
 #include <cmath>
 #include <iostream>
 #include <vector>
-using std::vector;
 
 namespace pic10a
 {
 class polynomial {
 private: 
 int length;  
-vector<double> v;
+std::vector<double> v;
 
 public:
   polynomial(double c = 0.0);
@@ -28,11 +27,13 @@ public:
   polynomial operator*(polynomial p);
   polynomial& operator*=(polynomial p);
 };
-}
 
+polynomial operator+(double c, polynomial p);
+polynomial operator*(double c, polynomial p);
 
 std::ostream& operator<<(std::ostream& s, pic10a::polynomial p);
 
+}
 
 
-#endif
+#endif // __POLYNOMIAL_H__

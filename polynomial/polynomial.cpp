@@ -1,7 +1,14 @@
 #include "polynomial.h"
 #include <iostream>
-using namespace pic10a;
+#include <cassert>
 
+pic10a::polynomial::polynomial(double c)
+{
+	v.resize(1);
+
+	v[0] = c;
+
+}
 int pic10a::polynomial::degree()
 {
 
@@ -26,19 +33,14 @@ void pic10a::polynomial::setCoeff(int deg, double c)
 
 	assert (deg >=0);
 
-	if ( deg >= v.size() - 1)
-	{
+	if (v.size() <= (unsigned int)deg + 1)
+		v.resize(deg + 1, 0.0);
+	
+	v[deg] = c;
 
-		v.resize(deg+1);	
-		
-		v[deg] = c;
-	}
-	else // (deg < v.size()-1)
-	{
+	while (degree() > 0 && getCoeff(degree()) == 0)
+		v.pop_back();
 
-		v[deg] = c;
-
-	}
 
 }
 
@@ -46,7 +48,7 @@ double pic10a::polynomial::getCoeff(int deg)
 {
 	assert (deg >= 0);
 
-	if ( (deg > v.size()-1) )
+	if ( (deg > degree() ) )
 		return 0;
 	else
 		return v[deg];
@@ -76,10 +78,11 @@ pic10a::polynomial operator+(double c, pic10a::polynomial p)
 
 pic10a::polynomial operator*(double c, pic10a::polynomial p)
 {
-	p.setCoeff(0,p.getCoeff(0)*c);	
-	
-	return p;
+	pic10a::polynomial cp;
 
+	cp.setCoeff(0, c);
+
+	return cp * p; // turn integer in (integer) * (polynomial) into a polynomial object!!!!
 }
 
   pic10a::polynomial pic10a::polynomial::operator+(pic10a::polynomial p)
@@ -107,23 +110,21 @@ pic10a::polynomial operator*(double c, pic10a::polynomial p)
 
   pic10a::polynomial pic10a::polynomial::operator*(pic10a::polynomial p)
 {
-	pic10a::polynomial net_sum;
+	pic10a::polynomial return_pol;
 
-	double sum_1 = 0;
-
-	for ( int i = 0; i < (p.v.size() + v.size()); i++)
+	for (int i = 0; i <= (degree() + p.degree()); i++)
 	{
-		for ( int j = 0; j <= i ; j++)
-		{
-			sum_1 += p.v[j]*v[i-j];
-		}
+		double c = 0;
 
-		net_sum.v[i] = sum_1;
+		for (int j = 0; j <= i; j++)
+			c += getCoeff(j) * p.getCoeff(i - j);
+		return_pol.setCoeff(i, c);
 
-		sum_1 = 0;
+
 	}
 
-	return net_sum;
+	return return_pol;
+
 
 }
 
@@ -201,32 +202,16 @@ pic10a::polynomial operator*(double c, pic10a::polynomial p)
 }
 
   pic10a::polynomial& pic10a::polynomial::operator*=(pic10a::polynomial p)
+	
 {
-	
-	v.resize(v.size() + p.v.size());
-
-	double sum_1 = 0;
-
-	for ( int i = 0; i < (v.size()); i++)
-	{
-		for ( int j = 0; j <= i ; j++)
-		{
-			sum_1 += p.v[j] * (v[i-j]);
-		}
-
-		v[i] = sum_1;
-
-		sum_1 = 0;
-	}
-	
-	return *this;
-
+	(*this) = (*this) * p;
+	return *this;	
 }
 
 
 
 
-std::ostream& operator<<(std::ostream& s, polynomial p) {
+std::ostream& operator<<(std::ostream& s, pic10a::polynomial p) {
   if (p.degree() == 0 && p.getCoeff(0) == 0.0)
     return (s << double(0));
   for (int i = p.degree(); i >= 0; i--) {
