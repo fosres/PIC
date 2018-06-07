@@ -12,7 +12,7 @@ pic10a::polynomial::polynomial(double c)
 int pic10a::polynomial::degree()
 {
 
-	return (int) v.size() - 1;
+	return v.size() - 1;
 
 }
 
@@ -74,7 +74,7 @@ pic10a::polynomial pic10a::operator+(double c, pic10a::polynomial p)
 
 	cp.setCoeff(0, c);
 
-	return cp + p; // turn integer in (integer) * (polynomial) into a polynomial object!!!!
+	return cp + p; // turn integer in (integer) * (polynomial) into a polynomial object
 	
 }
 
@@ -104,7 +104,7 @@ pic10a::polynomial pic10a::operator*(double c, pic10a::polynomial p)
 	}
 
 	for ( int i = 0; i < sum.v.size(); i++)
-		sum.v[i] = v[i] + p.v[i];
+		sum.setCoeff(i,getCoeff(i+p.getCoeff(i)));
 
 	return sum;
 
@@ -133,23 +133,9 @@ pic10a::polynomial pic10a::operator*(double c, pic10a::polynomial p)
   pic10a::polynomial& pic10a::polynomial::operator+=(pic10a::polynomial p)
 {
 
-	if ( v.size() > p.v.size() )
-	{
-		p.v.resize(v.size());
-	}
-	else // v.size() <= p.v.size()
-	{
-		v.resize(p.v.size());
-	}
+	(*this) = (*this) + p;
 
-	// now both v and p have same size()	
-	for ( int i = 0; i < v.size(); i++)
-	{
-		v[i] += p.v[i];
-	}
-
-	return *this;
-
+	return (*this);
 }
 
 pic10a::polynomial pic10a::polynomial::operator-()
@@ -161,54 +147,15 @@ pic10a::polynomial pic10a::polynomial::operator-()
 
   pic10a::polynomial pic10a::polynomial::operator-(pic10a::polynomial p)
 {
-	pic10a::polynomial difference;
-
-	if ( v.size() > p.v.size() )
-	{
-		difference.v.resize(v.size());
-
-		p.v.resize(v.size());
-
-	}
-
-	else // v.size() <= p.size()
-	{
-		difference.v.resize(p.v.size());
-
-		v.resize(p.v.size());
-
-	}
-
-	for ( int i = 0; i < difference.v.size(); i++)
-		difference.v[i] = v[i] - p.v[i];
-
-
-	return difference;
-
+	return (*this) + (-p);
 }
 
   pic10a::polynomial& pic10a::polynomial::operator-=(pic10a::polynomial p)
 {
 
-	if ( v.size() > p.v.size() )
-	{
-		p.v.resize(v.size());
-	}
-	else // v.size() <= p.v.size()
-	{
-		v.resize(p.v.size());
-	}
+	(*this) = (*this) - p;
 
-	// now both v and p have same size()	
-	for ( int i = 0; i < v.size(); i++)
-	{
-		v[i] -= p.v[i];
-	}
-
-	return *this;
-	
-	
-
+	return (*this);
 
 }
 
