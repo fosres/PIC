@@ -39,7 +39,9 @@ void pic10a::polynomial::setCoeff(int deg, double c)
 	v[deg] = c;
 
 	while (degree() > 0 && getCoeff(degree()) == 0)
+	{
 		v.pop_back();
+	}
 
 
 }
@@ -57,7 +59,6 @@ double pic10a::polynomial::getCoeff(int deg)
 
   double pic10a::polynomial::operator()(double x)
 {
-
 	double ans = 0;
 
 	for (int i = 0; i < v.size(); i++)
@@ -103,8 +104,8 @@ pic10a::polynomial pic10a::operator*(double c, pic10a::polynomial p)
 		v.resize(p.v.size());
 	}
 
-	for ( int i = 0; i < sum.v.size(); i++)
-		sum.setCoeff(i,getCoeff(i+p.getCoeff(i)));
+	for ( int i = sum.v.size()-1; i >= 0; i--)
+		sum.setCoeff(i,getCoeff(i)+p.getCoeff(i));
 
 	return sum;
 

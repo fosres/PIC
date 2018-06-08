@@ -42,6 +42,8 @@ int main() {
   cout << p2.getCoeff(5) << endl; //should be zero
   cout << endl;
   
+cout << p2 << endl;
+cout << p3 << endl;
   cout << p2 + p3 << endl;
   cout << p2 - p3 << endl;
   cout << p2 - p2 << endl;
