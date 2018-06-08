@@ -49,6 +49,7 @@ cout << p3 << endl;
   cout << p2 - p2 << endl;
   cout << p2 * p3 << endl;
   cout << p3 - p3 << endl;
+  cout << endl;
 
   cout << (p2 + p3).degree() << endl; //should be 1
   cout << (p2 - p3).degree() << endl; //should be 0
@@ -61,5 +62,15 @@ cout << p3 << endl;
   cout << p4 << endl;
   cout << p4(0.0) << endl;
   // pic10a::plot(p4*p4);
+  pic10a::polynomial p5;
+  p5.setCoeff(0,3);
+  p5.setCoeff(1,5);
+  p5.setCoeff(2,1);
 
+  pic10a::polynomial p6;
+  p6.setCoeff(0,9);
+  p6.setCoeff(1,7);
+  p6.setCoeff(2,6);
+
+  cout << p5 + p6 << endl;
 }
