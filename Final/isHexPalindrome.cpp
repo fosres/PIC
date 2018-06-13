@@ -14,7 +14,7 @@ bool isHexPalindrome(int num)
 {
   assert ( num >=0);
 char arr [16] = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
-char hex[10]; char *h = hex;
+static char hex[10]; char *h = hex;
 
 while (num > 0)
 {
@@ -26,17 +26,17 @@ h--; //point to last element
 if (strlen(hex)==1)
   return 1;
 
-char hex_rev[10]; char *h_rev = hex_rev;
+static char hex_rev[10]; char *h_rev = hex_rev;
 
 while (h >= hex)
 {
   *h_rev++ = *h--;
 }
 
-if (strcmp(hex,hex_rev) == 0)
-  return 1;
+return (strcmp(hex,hex_rev) == 0);
+  // return 1;
 
-return 0;
+// return 0;
 
 
 
@@ -53,3 +53,12 @@ cout << isHexPalindrome (170) << endl ; // output 1 (170==0 xAA )
   
 }
 
+#if 0
+
+Lesson learned. If you wish to retain array value when
+
+it its zeroth memory address is called as a parameter
+
+in a function, you better make sure it is a static array
+
+#endif
