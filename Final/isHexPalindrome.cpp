@@ -57,8 +57,6 @@ cout << isHexPalindrome (170) << endl ; // output 1 (170==0 xAA )
 
 Lesson learned. If you wish to retain array value when
 
-it its zeroth memory address is called as a parameter
-
-in a function, you better make sure it is a static array
+its zeroth memory address is called as a parameter FOR ANY function invocation, you better make sure it is initialized as a static array
 
 #endif
