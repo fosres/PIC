@@ -1,3 +1,4 @@
+//findWord.cpp does same thing as str.substr or strstr in ANSI C
 #include <iostream>
 #include <vector>
 using std::vector;
