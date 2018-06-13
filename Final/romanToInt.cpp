@@ -42,7 +42,7 @@ int romanToInt(string romanNum) //next time stick with the data type of the inpu
 
     if (roman_rev == &romanNum[romanNum.length()-1])
       sum += adder;
-    else if (strstr(numerals,roman_rev) >= strstr(numerals,(roman_rev+1)))
+    else if (strchr(numerals,*roman_rev) >= strchr(numerals,*(roman_rev+1)))
       sum += adder;
     else
       sum += -adder;
