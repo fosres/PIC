@@ -9,7 +9,7 @@ using std::string;
 using std :: cout;
 using std :: endl;
 
-int romanToInt(string romanNum) //next time stick with the data type of the input on the final
+int romanToInt(string romanNum) //next time stick with the data type of the input on the Final Exam
 {
   static char numerals[8] = "IVXLCDM"; 
 
