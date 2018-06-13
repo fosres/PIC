@@ -11,6 +11,9 @@ string addComma(long long int num)
 
   string ans = "";
 
+  if ( num == 0) 
+    return "0";
+
   for (int i = 0; num > 0; i++)
   {
     if (i%3 == 0 && i != 0)
@@ -41,8 +44,11 @@ string addComma(long long int num)
 
 int main()
 {
-  string a = "the";
-  a += 'b';
-  cout << addComma(1234) << endl;
+  cout << addComma (0) << endl ; // output 0
+cout << addComma (7) << endl ; // output 7
+cout << addComma (123) << endl ; // output 123
+cout << addComma (23123) << endl ; // output 23 ,123
+cout << addComma (1123123) << endl ; // output 1 ,123 ,123
+cout << addComma (123123123) << endl ; // output 123 ,123 ,123
 }
 
